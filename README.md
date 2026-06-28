@@ -10,9 +10,8 @@ Open, edit, and close documents with **zero network requests blocking the UI**. 
 
 ## ✨ Live demo & links
 
-- **App (Vercel):** `https://<your-app>.vercel.app`
-- **WebSocket sync server (Railway/Render):** `wss://<your-ws-host>`
-- **Repository:** `https://github.com/<you>/<repo>`
+- **App:** `https://prismatic-pothos-fdee97.netlify.app/`
+- **WebSocket sync server (Railway):** `wss://synca-production.up.railway.app/`
 
 ---
 
