@@ -1,8 +1,8 @@
 {
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "builder": "DOCKERFILE",
-    "dockerfilePath": "Dockerfile.ws"
+    "builder": "NIXPACKS",
+    "buildCommand": "echo 'WS server needs no build step'"
   },
   "deploy": {
     "startCommand": "npm run ws:start",
