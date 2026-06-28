@@ -138,7 +138,7 @@ function parseRequest(url: string | undefined): { documentId: string; token: str
   return { documentId, token };
 }
 
-const port = Number(process.env.WS_PORT ?? 1234);
+const port = Number(process.env.PORT ?? process.env.WS_PORT ?? 1234);
 const wss = new WebSocketServer({ port, maxPayload: MAX_SYNC_PAYLOAD_BYTES });
 
 wss.on("connection", async (ws, req) => {
