@@ -182,27 +182,6 @@ RUN_INTEGRATION=1 npm run test:e2e   # full offline-sync E2E (needs MongoDB)
 
 The unit suite deliberately tests the **sync engine itself** (`crdt-sync.test.ts`) at the protocol level — offline-edit/merge, order-independent convergence, idempotent re-delivery — which is where correctness actually matters.
 
----
-
-## Deployment & CI/CD
-
-**CI** (`[.github/workflows/ci.yml](.github/workflows/ci.yml)`) runs typecheck → tests → build on every push/PR.
-
-**App → Vercel**
-
-1. Import the repo into Vercel (auto-detects Next.js → continuous deployment on push).
-2. Set env vars: `MONGODB_URI`, `AUTH_SECRET`, `AUTH_TRUST_HOST=true`, `NEXT_PUBLIC_WS_URL` (the **wss://** URL of the deployed sync server), `OPENAI_API_KEY` (optional).
-
-**Sync server → Railway / Render / Fly.io** (needs a persistent process)
-
-```bash
-docker build -f Dockerfile.ws -t collab-ws .
-docker run -p 1234:1234 --env-file .env.local collab-ws
-```
-
-Set `MONGODB_URI` and `AUTH_SECRET` (must match the app's) on the host. Point the app's `NEXT_PUBLIC_WS_URL` at its public `wss://` URL.
-
----
 
 ---
 
